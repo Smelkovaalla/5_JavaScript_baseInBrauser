@@ -12,11 +12,10 @@ function onClick() {
 
 dropdownValue.addEventListener('click', onClick);
 
-function onChoice(e) {
-    dropdownValue.textContent = e.target.textContent
-    dropdownList.classList.remove('dropdown__list_active');
-};
-
 for (let i = 0; i < dropdownItem.length; i++) {
-    dropdownItem[i].addEventListener('click', onChoice);
+    dropdownItem[i].addEventListener("click", function (event) {
+        event.preventDefault();
+        dropdownValue.textContent = event.target.textContent;
+        dropdownList.classList.remove('dropdown__list_active');
+    });
 };
